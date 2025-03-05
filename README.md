@@ -62,7 +62,6 @@ Before setting up the project, make sure you have the following installed:
 - Maven
 - Docker
 - Temporal Server (installed locally or via Docker)
-- Git Repository (to trigger the pipeline)
 
 ## Setup and Execution
 
