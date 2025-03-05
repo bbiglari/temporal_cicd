@@ -1,0 +1,10 @@
+com/temporal/TestWorkflow.class
+com/temporal/CICDActivities.class
+com/temporal/TestActivitiesImpl.class
+com/temporal/CICDWorkflowImpl.class
+com/temporal/TestActivities.class
+com/temporal/CICDWorkflow.class
+com/temporal/CICDActivitiesImpl.class
+com/temporal/TemporalProperties.class
+com/temporal/TestWorkflowImp.class
+com/temporal/CICDWorkflow$Environment.class
