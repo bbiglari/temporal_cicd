@@ -1,12 +1,16 @@
-# Temporal-Powered CICD Pipeline
+# CICD Pipeline Example
+
+This project demonstrates the use of Temporal for building complex, reliable, and observable CICD pipelines. It includes services for running workflows, client interaction, and worker tasks.
+
+## Temporal-Powered CICD Pipeline
 
 This project demonstrates a Continuous Integration and Continuous Deployment (CICD) pipeline orchestrated by Temporal Workflow, showcasing the platform's capabilities and flexibility.
 
-## Overview
+### Overview
 
 This system automates the deployment process, triggered by Git repository events. It features a multi-stage pipeline that includes building, containerizing, testing, and deploying applications to both staging and production environments. The core of this system is driven by Temporal Workflow, which ensures reliability, observability, and maintainability.
 
-## System Design
+### System Design
 
 The CICD system is composed of three main services, each running within its own Docker container:
 
@@ -22,18 +26,18 @@ graph LR
     B --> C{CICDClientService (REST API)};
     C --> D[Temporal Server];
     D --> E{CICDWorkerService};
-    E --> F[Build Project];
-    E --> G[Containerize];
-    E --> H[Push to Registry];
-    E --> I[Deploy to Staging];
-    I --> J[Test Workflow];
-    J --> K[Integration Tests];
-    J --> L[Smoke Tests];
-    J --> M[Stress Tests];
-    J --> N[Chaos Monkey Tests];
-    N --> O{all tests passed ?}
+    E --> F[Build Project (Activity)];
+    E --> G[Containerize (Activity)];
+    E --> H[Push to Registry (Activity)];
+    E --> I[Deploy to Staging (Activity)];
+    I --> J{Test Workflow (Child Workflow)};
+    J --> K[Integration Tests (Activity)];
+    J --> L[Smoke Tests (Activity)];
+    J --> M[Stress Tests (Activity)];
+    J --> N[Chaos Monkey Tests (Activity)];
+    N --> O{all tests passed ?};
     O -- Yes --> P[Signal to Parent Workflow];
-    P --> I2[Deploy to Production];
+    P --> I2[Deploy to Production (Activity)];
     O -- No --> Q[Fail];
     style D fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#ccf,stroke:#333,stroke-width:2px
@@ -41,11 +45,14 @@ graph LR
     style J fill:#cfc,stroke:#333,stroke-width:2px
     style I fill:#cfc,stroke:#333,stroke-width:2px
     style I2 fill:#cfc,stroke:#333,stroke-width:2px
-
-
-# CICD Pipeline Example
-
-This project demonstrates the use of Temporal for building complex, reliable, and observable CICD pipelines. It includes services for running workflows, client interaction, and worker tasks.
+    style F fill:#cfc,stroke:#333,stroke-width:2px
+    style G fill:#cfc,stroke:#333,stroke-width:2px
+    style H fill:#cfc,stroke:#333,stroke-width:2px
+    style K fill:#cfc,stroke:#333,stroke-width:2px
+    style L fill:#cfc,stroke:#333,stroke-width:2px
+    style M fill:#cfc,stroke:#333,stroke-width:2px
+    style N fill:#cfc,stroke:#333,stroke-width:2px
+```
 
 ## Prerequisites
 
