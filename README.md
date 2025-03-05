@@ -23,7 +23,7 @@ The CICD system is composed of three main services, each running within its own 
 ```mermaid
 graph LR
     A[Git Repository] --> B(Webhook);
-    B --> C{CICDClientService (REST API)};
+    B --> C{CICDClientService };
     C --> D[Temporal Server];
     D --> E{CICDWorkerService};
     E --> F[Build Project (Activity)];
