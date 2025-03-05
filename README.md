@@ -26,18 +26,18 @@ graph LR
     B --> C{CICDClientService };
     C --> D[Temporal Server];
     D --> E{CICDWorkerService};
-    E --> F[Build Project (Activity)];
-    E --> G[Containerize (Activity)];
-    E --> H[Push to Registry (Activity)];
-    E --> I[Deploy to Staging (Activity)];
-    I --> J{Test Workflow (Child Workflow)};
-    J --> K[Integration Tests (Activity)];
-    J --> L[Smoke Tests (Activity)];
-    J --> M[Stress Tests (Activity)];
-    J --> N[Chaos Monkey Tests (Activity)];
+    E --> F[Build Project ];
+    E --> G[Containerize ];
+    E --> H[Push to Registry  ];
+    E --> I[Deploy to Staging  ];
+    I --> J{Test Workflow  };
+    J --> K[Integration Tests  ];
+    J --> L[Smoke Tests  ];
+    J --> M[Stress Tests ];
+    J --> N[Chaos Monkey Tests  ];
     N --> O{all tests passed ?};
     O -- Yes --> P[Signal to Parent Workflow];
-    P --> I2[Deploy to Production (Activity)];
+    P --> I2[Deploy to Production  ];
     O -- No --> Q[Fail];
     style D fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#ccf,stroke:#333,stroke-width:2px
